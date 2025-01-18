@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-zinc-900">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Industrial Welding Project Submission</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            display: block !important;
+            min-height: 100vh;
+            background-color: #18181b;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zm20.97 0l9.315 9.314-1.414 1.414L34.828 0h2.83zM22.344 0L13.03 9.314l1.414 1.414L25.172 0h-2.83zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544V0h.284zM0 5.373l25.456 25.455-1.414 1.415L0 8.2V5.374zm0 5.656l22.627 22.627-1.414 1.414L0 13.86v-2.83zm0 5.656l19.8 19.8-1.415 1.413L0 19.514v-2.83zm0 5.657l16.97 16.97-1.414 1.415L0 25.172v-2.83zM0 28l14.142 14.142-1.414 1.414L0 30.828V28zm0 5.657L11.314 44.97 9.9 46.386l-9.9-9.9v-2.828zm0 5.657L8.485 47.8 7.07 49.212 0 42.143v-2.83zm0 5.657l5.657 5.657-1.414 1.415L0 47.8v-2.83zm0 5.657l2.828 2.83-1.414 1.413L0 53.456v-2.83zM54.627 60L30 35.373 5.373 60H8.2L30 38.2 51.8 60h2.827zm-5.656 0L30 41.03 11.03 60h2.828L30 43.858 46.142 60h2.83zm-5.656 0L30 46.686 16.686 60h2.83L30 49.515 40.485 60h2.83zm-5.657 0L30 52.343 22.344 60h2.83L30 55.172 34.828 60h2.83zM32 60l-2-2-2 2h4zM59.716 0l-28 28 1.414 1.414L60 2.544V0h-.284zM60 5.373L34.544 30.828l1.414 1.415L60 8.2V5.374zm0 5.656L37.373 33.656l1.414 1.414L60 13.86v-2.83zm0 5.656l-19.8 19.8 1.415 1.413L60 19.514v-2.83zm0 5.657l-16.97 16.97 1.414 1.415L60 25.172v-2.83zM60 28L45.858 42.142l1.414 1.414L60 30.828V28zm0 5.657L48.686 44.97l1.415 1.415 9.9-9.9v-2.828zm0 5.657L51.515 47.8l1.414 1.413 7.07-7.07v-2.83zm0 5.657l-5.657 5.657 1.414 1.415L60 47.8v-2.83zm0 5.657l-2.828 2.83 1.414 1.413L60 53.456v-2.83zM39.9 16.385l1.414-1.414L30 3.658 18.686 14.97l1.415 1.415 9.9-9.9 9.9 9.9zm-2.83 2.828l1.415-1.414L30 9.313 21.515 17.8l1.414 1.413L30 11.93l7.07 7.07zm-2.827 2.83l1.414-1.416L30 14.97l-5.657 5.657 1.414 1.415L30 17.8l4.243 4.242zm-2.83 2.827l1.415-1.414L30 20.626l-3.535 3.536 1.414 1.414L30 23.456l1.414 1.414zM56.87 59.414L58.284 58 30 29.716 1.716 58l1.414 1.414L30 32.544l26.87 26.87z' fill='%232563eb' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            opacity: 1 !important;
+        }
+
+        .text-3d {
+            text-shadow: 2px 2px 0 black,
+                4px 4px 0 black,
+                6px 6px 0 black;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <!-- Header -->
+            <div class="text-center mb-12 fade-in">
+                <div class="flex items-center justify-center mb-4">
+                    <img src="Borucular-Logo-jpg-removebg-preview.png" alt="WeldTech Logo" class="h-40 w-auto mr-2">
+                </div>
+                <h2 class="text-4xl sm:text-3xl md:text-4xl font-bold mb-4 animate-fade-in bg-gradient-to-r bg-clip-text text-transparent"
+                    style="background-image: linear-gradient(to right, #FABB00, #FABB00, #FABB00); text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.415); line-height: 1.3; padding-bottom: 0.2rem; overflow: visible;">
+                    Welding Project Submission
+                </h2>
+                <p class="text-xl text-zinc-400">Complete project specifications for professional welding services</p>
+            </div>
+
+            <!-- Form -->
+            <form class="space-y-8 bg-zinc-800 rounded-xl p-8 border border-amber-400 fade-in shadow-xl">
+                <!-- Basic Project Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Project Name</label>
+                        <input type="text" required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Project Location</label>
+                        <input type="text" required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Start Date</label>
+                        <input type="date" required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">End Date</label>
+                        <input type="date" required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Submission Deadline</label>
+                        <input type="date" required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                </div>
+
+                <!-- Project Type -->
+                <div>
+                    <label class="block text-zinc-300 mb-4">Project Type</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <label
+                            class="relative flex items-center p-4 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 transition-colors">
+                            <input type="radio" name="projectType" required class="mr-3 accent-blue-500">
+                            <span class="text-white">Gas Pipeline</span>
+                        </label>
+                        <label
+                            class="relative flex items-center p-4 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 transition-colors">
+                            <input type="radio" name="projectType" class="mr-3 accent-blue-500">
+                            <span class="text-white">Water Pipeline</span>
+                        </label>
+                        <label
+                            class="relative flex items-center p-4 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 transition-colors">
+                            <input type="radio" name="projectType" class="mr-3 accent-blue-500">
+                            <span class="text-white">District Heating</span>
+                        </label>
+                        <label
+                            class="relative flex items-center p-4 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 transition-colors">
+                            <input type="radio" name="projectType" class="mr-3 accent-blue-500">
+                            <span class="text-white">Other</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pipeline Specifications -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Pipeline Length (m)</label>
+                        <input type="number" required min="0" step="0.1"
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Material Type</label>
+                        <select required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                            <option value="">Select material</option>
+                            <option value="carbon">Carbon Steel</option>
+                            <option value="stainless">Stainless Steel</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Wall Thickness (mm)</label>
+                        <input type="number" required min="0" step="0.1"
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                    </div>
+                </div>
+
+                <!-- Site Provisions -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Accommodation Provided?</label>
+                        <select required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                            <option value="">Select option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="maybe">Maybe</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Power Supply Available?</label>
+                        <select required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                            <option value="">Select option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-zinc-300 mb-2">Welding Materials Provided?</label>
+                        <select required
+                            class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors">
+                            <option value="">Select option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Welding Process -->
+                <div>
+                    <label class="block text-zinc-300 mb-4">Welding Process</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label
+                            class="relative flex relative flex items-center p-4 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 transition-colors">
+                            <input type="radio" name="weldingProcess" required class="mr-3 accent-blue-500">
+                            <div>
+                                <span class="text-white font-medium block">TIG Welding</span>
+                                <span class="text-zinc-400 text-sm">High precision for critical joints</span>
+                            </div>
+                        </label>
+                        <label
+                            class="relative flex items-center p-4 bg-zinc-700 rounded-lg cursor-pointer hover:bg-zinc-600 transition-colors">
+                            <input type="radio" name="weldingProcess" class="mr-3 accent-blue-500">
+                            <div>
+                                <span class="text-white font-medium block">Stick Welding</span>
+                                <span class="text-zinc-400 text-sm">Robust for heavy-duty applications</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Technical Documentation -->
+                <div>
+                    <label class="block text-zinc-300 mb-2">Technical Documentation</label>
+                    <div id="dropZone"
+                        class="border-2 border-dashed border-zinc-600 rounded-lg p-8 text-center hover:border-blue-500 transition-colors cursor-pointer">
+                        <div class="flex flex-col items-center">
+                            <svg class="w-12 h-12 text-zinc-400 mb-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <p class="text-zinc-300 mb-2">Drag and drop technical drawings or specifications</p>
+                            <p class="text-zinc-500 text-sm">Supported formats: PDF, DWG, DXF, DOC</p>
+                        </div>
+                        <input type="file" id="fileInput" multiple class="hidden" accept=".pdf,.dwg,.dxf,.doc,.docx">
+                        <div id="fileList" class="mt-4 flex flex-wrap gap-2"></div>
+                    </div>
+                </div>
+
+                <!-- Additional Requirements -->
+                <div>
+                    <label class="block text-zinc-300 mb-2">Additional Requirements</label>
+                    <textarea
+                        class="w-full px-4 py-2 bg-zinc-700 rounded-lg text-white border border-zinc-600 focus:border-blue-500 outline-none transition-colors h-32 resize-none"
+                        placeholder="Specify any special requirements, safety considerations, or additional specifications..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit"
+                        class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-semibold flex items-center justify-center mx-auto space-x-2">
+                        <span>Submit Project Request</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="mt-10 py-6 text-center text-zinc-500 bg-black/30 backdrop-blur-sm">
+        <p>© 2025 All Rights Reserved, Borucular</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            // GSAP Animations
+            gsap.from('.fade-in', {
+                opacity: 0,
+                y: 20,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power2.out'
+            });
+
+            // File Upload Handling
+            const dropZone = $('#dropZone');
+            const fileInput = $('#fileInput');
+            const fileList = $('#fileList');
+
+            dropZone.on('dragover', function (e) {
+                e.preventDefault();
+                $(this).addClass('border-blue-500');
+            });
+
+            dropZone.on('dragleave', function (e) {
+                e.preventDefault();
+                $(this).removeClass('border-blue-500');
+            });
+
+            dropZone.on('drop', function (e) {
+                e.preventDefault();
+                $(this).removeClass('border-blue-500');
+                const files = e.originalEvent.dataTransfer.files;
+                handleFiles(files);
+            });
+
+            dropZone.on('click', function () {
+                fileInput.click();
+            });
+
+            fileInput.on('change', function () {
+                handleFiles(this.files);
+            });
+
+            function handleFiles(files) {
+                fileList.empty();
+                Array.from(files).forEach(file => {
+                    const fileElement = $(`
+                        <div class="bg-zinc-700 px-3 py-1 rounded-full text-sm text-zinc-300 flex items-center">
+                            <span>${file.name}</span>
+                            <button type="button" class="ml-2 text-zinc-400 hover:text-zinc-200">×</button>
+                        </div>
+                    `);
+                    fileList.append(fileElement);
+                });
+            }
+
+            // Form submission
+            $('form').on('submit', function (e) {
+                e.preventDefault();
+                const button = $(this).find('button[type="submit"]');
+                button.prop('disabled', true)
+                    .html('<span class="inline-block animate-spin mr-2">↻</span> Submitting Request...');
+
+                // Simulate submission - replace with actual submission logic
+                setTimeout(() => {
+                    button.html('✓ Request Submitted')
+                        .removeClass('bg-blue-600 hover:bg-blue-700')
+                        .addClass('bg-green-600 hover:bg-green-700');
+                }, 2000);
+            });
+        });
+    </script>
+    <script>
+        // Get DOM elements
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Highlight drop zone when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropZone.classList.add('border-blue-500');
+        }
+
+        function unhighlight(e) {
+            dropZone.classList.remove('border-blue-500');
+        }
+
+        // Handle dropped files
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        // Handle file input selection
+        fileInput.addEventListener('change', function (e) {
+            handleFiles(this.files);
+        });
+
+        // Handle the files
+        function handleFiles(files) {
+            fileList.innerHTML = ''; // Clear existing files
+
+            Array.from(files).forEach(file => {
+                // Create file display element
+                const fileElement = document.createElement('div');
+                fileElement.className = 'bg-zinc-700 px-3 py-2 rounded-lg text-sm text-zinc-300 flex items-center justify-between mb-2';
+
+                // Add file info
+                const fileInfo = document.createElement('div');
+                fileInfo.className = 'flex items-center';
+
+                // Add file icon
+                const fileIcon = document.createElement('span');
+                fileIcon.className = 'mr-2';
+                fileIcon.innerHTML = '📄';
+
+                // Add file name and size
+                const fileName = document.createElement('span');
+                fileName.textContent = `${file.name} (${formatFileSize(file.size)})`;
+
+                // Add remove button
+                const removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.className = 'ml-2 text-zinc-400 hover:text-red-400 focus:outline-none';
+                removeButton.textContent = '×';
+                removeButton.onclick = () => fileElement.remove();
+
+                // Assemble elements
+                fileInfo.appendChild(fileIcon);
+                fileInfo.appendChild(fileName);
+                fileElement.appendChild(fileInfo);
+                fileElement.appendChild(removeButton);
+                fileList.appendChild(fileElement);
+            });
+        }
+
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Handle click on drop zone
+        dropZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+    </script>
+</body>
+
+</html>
